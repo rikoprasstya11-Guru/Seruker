@@ -90,7 +90,8 @@ const App: React.FC = () => {
       const res = await fetch(SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(dataToSend),
-        headers: { 'Content-Type': 'application/json' },
+        // Mengubah Content-Type untuk menghindari masalah CORS preflight dengan Google Apps Script
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       });
 
       // Apps Script yang kita buat akan merespons dengan JSON
